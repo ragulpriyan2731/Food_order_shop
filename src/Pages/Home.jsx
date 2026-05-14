@@ -17,9 +17,9 @@ function Home(){
         <div className="flex items-center justify px-8 py-10 min-h-screen bg-yellow-50">
            
            
-            <div className="max-w-xl">
             <div>
-        <img src={Foods} alt=" all foods" className="rounded-bl-full mb-6" />
+            <div>
+        <img src={Foods} alt=" all foods" className="rounded-bl-full mb-6 w-full" />
         </div>
         <h1 className="font-extrabold text-2xl mb-4">Delicious food</h1>
         <h2 className="text-lg text-yellow-600 font-bold leading-8 mb-8">Welcome to FoodName, where every meal is made with fresh ingredients and rich flavors.</h2>

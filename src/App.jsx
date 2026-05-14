@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Cart from './Pages/Cart'
 import Contact from './Pages/Contact'
 import Category from "./Componetsfoods/Componentallfoods/Category"
+import Register from "./Pages/Register"
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
     <Route path="/Cart" element={<Cart />} />
     <Route path="/Contact" element={<Contact />} />
     <Route path="/Category" element={<Category />} />
-    {/* <Category /> */}
+    <Route path="/Register" element={<Register />} />
+    
 
     </Routes>
       

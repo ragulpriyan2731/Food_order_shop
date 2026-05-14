@@ -1,7 +1,9 @@
-import { Link } from "react-router"
+import { Link,useNavigate } from "react-router"
+// import Register from "../Pages/Register"
 
 
 function Navbar(){
+    const loginnavigate = useNavigate()
     return(
         <nav className= "grid grid-cols-3 items-center bg-black text-white px-4 py-4">
         <div className="bg-stone-600 justify-self-start text-1xl cursor-pointer">
@@ -14,8 +16,13 @@ function Navbar(){
             <Link to="/Contact">Contact</Link>
             </div>
             <div className="justify-self-end">
-                <h1>LOGO</h1>
+            
+            <button  onClick={()=>loginnavigate("/Register")}>Login</button>
+        
             </div>
+            {/* <div className="justify-self-end">
+                <h1>LOGO</h1>
+            </div> */}
         
         
         </nav>
