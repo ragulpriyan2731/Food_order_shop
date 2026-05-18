@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function Register(){
+    const nameLog = useRef()
     const [user,setuser] = useState({
         name:"",
         email:"",
         password:"",
     })
+
+     useEffect(()=>{
+        nameLog.current.focus()
+     },[])
     const handlechange=(e)=>{
         setuser({
             ...user,
@@ -13,10 +18,12 @@ function Register(){
         })
     }
     
+    
     const handlesubmit=(e)=>{
         e.preventDefault()
         alert("Login successfully")
     }
+    
     return(
         <div className="justify-center flex items-center min-h-screen bg-gray-100">
             <form onSubmit={handlesubmit} className="bg-white p-8 rounded-2xl shadow-lg w-80">
@@ -27,6 +34,7 @@ function Register(){
                     name="name"
                     placeholder="Name"
                     value={user.name}
+                    ref={nameLog}
                     onChange={handlechange}
                     className="w-full border p-2 mb-4 rounded-xl outline-none focus:border-blue-500"/>
                 </div>

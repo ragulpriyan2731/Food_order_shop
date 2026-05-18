@@ -6,14 +6,19 @@ import Sandwich from "../../assets/sandwich.jpg"
 import Biryani from "../../assets/biryani.jpg"
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import { useDispatch } from "react-redux"
+import { addtoCart } from "../../Pages/Cartslice"
 // import Cart from '../../Pages/Cart'
 
 
 
 function Category(){
-
-
+    const dispatch= useDispatch()
     const addCart = useNavigate()
+    const handleCart=(Food)=>{
+        dispatch(addtoCart(Food))
+        addCart("/Cart")
+    }
 
 
     
@@ -103,7 +108,7 @@ const filteredfood=fooddata.filter((Food)=>
                 <h2>Quantity: {Food.quantity}</h2>
                 {/* <p className="font-light">{Food.description}</p> */}
                 
-                <button className="bg-black text-white rounded-full px-4 py-2 mt-4 hover:border-bs-olive-800 cursor-pointer" onClick={()=>addCart("/Cart")}>Add to Cart</button>
+                <button className="bg-black text-white rounded-full px-4 py-2 mt-4 hover:border-bs-olive-800 cursor-pointer" onClick={()=>handleCart(Food)}>Add to Cart</button>
                 
             </div>
         )
