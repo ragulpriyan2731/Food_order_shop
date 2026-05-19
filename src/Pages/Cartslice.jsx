@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
     cartitems:[],
-    ordered: false
+    ordered: false,
+    username:"",
+    isLoggedIn:false
 }
 const cartslice = createSlice({
     name:"cart",
@@ -21,9 +23,17 @@ const cartslice = createSlice({
         },
         buynow:(state)=>{
             state.ordered = true
+        },
+        login:(state,action)=>{
+            state.username= action.payload;
+            state.isLoggedIn=true;
+        },
+        logout:(state)=>{
+            state.username="";
+            state.isLoggedIn=false
         }
         
     }
 })
-export const{addtoCart,toggleitem,buynow}=cartslice.actions
+export const{addtoCart,toggleitem,buynow,login,logout}=cartslice.actions
 export default cartslice.reducer

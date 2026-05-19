@@ -87,12 +87,12 @@ const filteredfood=fooddata.filter((Food)=>
 
     
     return(
-        <div>
+        <div className="w-full overflow-x-hidden px-3">
         <input type="text" 
         placeholder="search your foods"
         value={search}
         onChange={(e)=>setsearch(e.target.value)}
-        className="w-full p-2 border rounded mt-4 mb-4 pl-2 ml-2"
+        className="w-full flex justify-center items-center p-2 border rounded mt-4 mb-4"
         />
         
        <div className="grid grid-cols-3 gap-6 p-2">

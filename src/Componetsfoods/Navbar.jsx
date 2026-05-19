@@ -1,8 +1,14 @@
 import { Link,useNavigate } from "react-router"
 import { FaCartShopping } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+
+
 
 
 function Navbar(){
+    const {username,isLoggedIn}=useSelector(
+        (state)=>state.cart
+    );
     const loginnavigate = useNavigate()
     return(
         <nav className= "flex items-center justify-between bg-black text-white px-4 py-4">
@@ -16,8 +22,8 @@ function Navbar(){
             <Link to="/Contact">Contact</Link>
             </div>
             <div className="flex items-center gap-4">
-            
-            <button className="bg-orange-500 text-white px-4 py-2 rounded-full" onClick={()=>loginnavigate("/Register")}>Login</button>
+             {isLoggedIn ? (<h2 className="text-white font-semibold">{username}</h2>) :
+            (<button className="bg-orange-500 text-white px-4 py-2 rounded-full" onClick={()=>loginnavigate("/Register")}>Login</button>)}
             <div className="justify-self-end">
             <Link to="/Cart">
             <FaCartShopping />

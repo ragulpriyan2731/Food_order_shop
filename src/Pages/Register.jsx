@@ -1,12 +1,16 @@
 import { useEffect, useRef, useState } from "react"
+import { useDispatch } from "react-redux"
+import {login} from '../Pages/Cartslice'
 
 function Register(){
+    const dispatch = useDispatch()
     const nameLog = useRef()
     const [user,setuser] = useState({
         name:"",
         email:"",
         password:"",
     })
+    
 
      useEffect(()=>{
         nameLog.current.focus()
@@ -14,14 +18,16 @@ function Register(){
     const handlechange=(e)=>{
         setuser({
             ...user,
-            [e.target.value]:e.target.value,
+            [e.target.name]:e.target.value
         })
     }
     
+   
     
     const handlesubmit=(e)=>{
         e.preventDefault()
-        alert("Login successfully")
+        dispatch(login(user.name))
+        // alert("Login successfully")
     }
     
     return(
